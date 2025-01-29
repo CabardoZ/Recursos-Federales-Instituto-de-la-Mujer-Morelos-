@@ -1,0 +1,5 @@
+dash
+pandas
+plotly
+gunicorn
+openpyxl  # Para leer archivos Excel
