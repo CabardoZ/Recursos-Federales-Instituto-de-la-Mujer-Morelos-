@@ -416,6 +416,8 @@ def actualizar_grafico_barras(rubro_seleccionado):
     )
 
     return fig_bar
+    
+server = app.server
 
 # Ejecutar la aplicación
 if __name__ == '__main__':
