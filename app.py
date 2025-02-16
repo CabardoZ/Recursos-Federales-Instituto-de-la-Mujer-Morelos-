@@ -306,14 +306,35 @@ fig_violencia_barras = px.bar(df_long_violencia,
 # Inicializar la aplicación Dash
 app = dash.Dash(__name__)
 
+styles = {
+    'backgroundColor': '#FFE5D9',  # Fondo rojizo claro
+    'fontFamily': 'Montserrat Light, Arial, sans-serif',  # Fuente Montserrat Light
+    'color': '#8B0000',  # Color de texto rojizo oscuro
+    'padding': '20px'
+}
+
+title_style = {
+    'textAlign': 'center',
+    'fontFamily': 'Montserrat Light, Arial, sans-serif',
+    'color': '#FF4500',  # Color naranja rojizo
+    'fontWeight': 'bold',
+    'fontSize': '36px',
+    'textShadow': '2px 2px 4px rgba(0, 0, 0, 0.3)',  # Sombra para el texto
+    'background': 'linear-gradient(90deg, #FF4500, #8B0000)',  # Fondo degradado
+    'WebkitBackgroundClip': 'text',
+    'WebkitTextFillColor': 'transparent'
+}
+
+
+
+
 
 app.layout = html.Div([
     html.Div([
-        html.H1("PLATAFORMA DE MONITOREO DE RECURSOS FEDERALES DEL INSTITUTO DE LA MUJER PARA EL ESTADO DE MORELOS", style={
-            'textAlign': 'center', 'font-family': 'Arial, sans-serif', 'color': '#333333', 'font-weight': 'bold'}),
+        html.H1("PLATAFORMA DE MONITOREO DE RECURSOS FEDERALES DEL INSTITUTO DE LA MUJER PARA EL ESTADO DE MORELOS", style=title_style),
         html.P("Indicadores de gasto y de resultados de los recursos federales transferidos por la Comisión Nacional para Prevenir y Erradicar la Violencia contra las Mujeres y el Instituto Nacional de las Mujeres.",
-               style={'textAlign': 'center', 'font-family': 'Arial, sans-serif', 'color': '#333333', 'font-style': 'italic', 'font-size': '16px', 'marginTop': '10px'})
-    ], style={'marginBottom': '40px'}),  # Título centrado y margen inferior para separación
+               style={'textAlign': 'center', 'fontFamily': 'Montserrat Light, Arial, sans-serif', 'color': '#8B0000', 'fontStyle': 'italic', 'fontSize': '16px', 'marginTop': '10px'})
+    ], style={'marginBottom': '40px'}), # Título centrado y margen inferior para separación
 
 
     html.Div([
@@ -378,12 +399,7 @@ app.layout = html.Div([
         html.P("ELABORADO POR LIC.C.POL. EDUARDO CABRERA GUTIÉRREZ.", style={'textAlign': 'center', 'font-family': 'Arial, sans-serif', 'color': '#333333', 'marginTop': '40px'}),
         html.P("CORREO: CABARDO.GUTZ@GMAIL.COM", style={'textAlign': 'center', 'font-family': 'Arial, sans-serif', 'color': '#333333'})
     ], style={'marginTop': '20px'})
-], style={
-    'backgroundColor': '#f4f4f9',  # Fondo neutro y profesional
-    'font-family': 'Arial, sans-serif',  # Fuente moderna
-    'color': '#333333',  # Color oscuro para un contraste adecuado
-    'padding': '20px'
-})
+    ], style=styles)
 
 # Callback para actualizar el gráfico de barras según la selección del menú desplegable
 @app.callback(
